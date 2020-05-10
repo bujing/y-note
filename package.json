@@ -1,0 +1,15 @@
+{
+  "name": "y-note",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bujing/y-note.git",
+  "author": "yangguowei <bujing18@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.4.1"
+  },
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  }
+}
