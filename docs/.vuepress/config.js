@@ -25,7 +25,8 @@ module.exports = {
           collapsable: false,
           sidebarDepth: 2,
           children: [
-            'node-sass-local-install'
+            'node-sass-local-install',
+            'right-click-open-with-sublime-text'
           ]
         }
       ]
