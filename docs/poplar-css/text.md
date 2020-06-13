@@ -50,7 +50,17 @@ $text-size-max: 0 !default;
 在 `$text-color` 集合中声明文本的颜色样式，丰富文本的不同语义表示。同样支持扩展。
 
 ``` scss
+$black: #000;
+$white: #fff;
+
 $text-color: () !default;
+$text-color: map-merge(
+  (
+    'black': $black,
+    'white': $white
+  ),
+  $text-color
+);
 
 @each $color, $value in $text-color {
   .text-#{$color} {
@@ -60,22 +70,17 @@ $text-color: () !default;
 ```
 
 ``` html
-<p class="text-primary">这是一段示例文字。</p>
+<p class="text-black">这是一段示例文字。</p>
 ```
 
 在 `$text-align` 集合中声明文本的对齐样式。
 
 ``` scss
-$text-align: (
-  'center': center,
-  'left': left,
-  'right': right,
-  'justify': justify
-) !default;
+$text-align: center, left, right, justify !default;
 
-@each $align, $value in $text-align {
+@each $align in $text-align {
   .text-#{$align} {
-    text-align: $value;
+    text-align: $align;
   }
 }
 ```

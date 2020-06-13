@@ -17,17 +17,12 @@
 指定元素在主轴上的布局方向（正方向或反方向）。
 
 ``` scss
-$flex-direction: (
-  'row': row,
-  'row-reverse': row-reverse,
-  'column': column,
-  'column-reverse': column-reverse
-) !default;
+$flex-direction: row, row-reverse, column, column-reverse !default;
 
-@each $direction, $value in $flex-direction {
+@each $direction in $flex-direction {
   .flex-#{$direction} {
     @extend .flex;
-    flex-direction: $value;
+    flex-direction: $direction;
   }
 }
 ```
@@ -35,15 +30,11 @@ $flex-direction: (
 指定元素在主轴上的排布，是收缩或溢出，还是在交叉轴上延伸。
 
 ``` scss
-$flex-wrap: (
-  'nowrap': nowrap,
-  'wrap': wrap,
-  'wrap-reverse': wrap-reverse
-) !default;
+$flex-wrap: nowrap, wrap, wrap-reverse !default;
 
-@each $wrap, $value in $flex-wrap {
+@each $wrap in $flex-wrap {
   .flex-#{$wrap} {
-    flex-wrap: $value;
+    flex-wrap: $wrap;
   }
 }
 ```

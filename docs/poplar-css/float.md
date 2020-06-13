@@ -3,15 +3,11 @@
 浮动和清除浮动，也是不能忽略的常用样式。
 
 ``` scss
-$float-side: (
-  'left': left,
-  'right': right,
-  'none': none
-) !default;
+$float-side: left, right, none !default;
 
-@each $side, $value in $float-side {
+@each $side in $float-side {
   .float-#{$side} {
-    float: $value;
+    float: $side;
   }
 }
 ```
