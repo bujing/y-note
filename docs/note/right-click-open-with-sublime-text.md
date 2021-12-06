@@ -8,7 +8,7 @@
 
 ### Sublime Text 3
 
-在 `HKEY_CLASSES_ROOT\Directory\shell` 下新建一个项，命名为 `Sublime Text 3`，并将其默认数值的数据修改为 `用 Sublime Text 3 打开`，这就是显示在右键菜单上文字。
+在 `HKEY_CLASSES_ROOT\Directory\shell` 下新建一个项，命名为 `Sublime Text 3`，并将其默认数值的数据修改为 `用 Sublime Text 3 打开`，这就是显示在右键菜单上的文字。
 
 ### command
 

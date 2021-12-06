@@ -4,44 +4,30 @@
 
 指定容器使用弹性盒子布局。
 
-``` scss
-.flex {
-  display: flex;
+``` css
+.flex { display: flex; }
 
-  &-inline {
-    display: inline-flex;
-  }
-}
+.flex-inline { display: inline-flex; }
 ```
 
-指定元素在主轴上的布局方向（正方向或反方向）。
+指定元素在主轴上的布局方向（正方向或反方向），包含 `row`、`row-reverse`、`column` 和 `column-reverse`，支持重写，但不支持扩展。
 
-``` scss
-$flex-direction: row, row-reverse, column, column-reverse !default;
-
-@each $direction in $flex-direction {
-  .flex-#{$direction} {
-    @extend .flex;
-    flex-direction: $direction;
-  }
-}
+``` css
+.flex-row { flex-direction: row; }
+/* other */
 ```
 
-指定元素在主轴上的排布，是收缩或溢出，还是在交叉轴上延伸。
+指定元素在主轴上的排布，是收缩或溢出，还是在交叉轴上延伸，包含 `nowrap`、`wrap` 和 `wrap-reverse`，支持重写，但不支持扩展。
 
-``` scss
-$flex-wrap: nowrap, wrap, wrap-reverse !default;
-
-@each $wrap in $flex-wrap {
-  .flex-#{$wrap} {
-    flex-wrap: $wrap;
-  }
-}
+``` css
+.flex-nowrap { flex-wrap: nowrap; }
+/* other */
 ```
 
-指定元素在主轴方向上的（元素之间及其周围的）空间分配。
+指定元素在主轴方向上的（元素之间及其周围的）空间分配，支持重写，但不支持扩展。
 
 ``` scss
+// 默认集合
 $main-content: (
   'stretch': stretch,
   'between': space-between,
@@ -51,17 +37,15 @@ $main-content: (
   'end': flex-end,
   'center': center
 ) !default;
-
-@each $content, $value in $main-content {
-  .main-content-#{$content} {
-    justify-content: $value;
-  }
-}
+// 输出
+.main-content-stretch { justify-content: stretch; }
+// other
 ```
 
-指定元素在交叉轴方向上的（元素之间及其周围的）空间分配，对单行弹性盒子无效。
+指定元素在交叉轴方向上的（元素之间及其周围的）空间分配，对单行弹性盒子无效，支持重写，但不支持扩展。
 
 ``` scss
+// 默认集合
 $cross-content: (
   'stretch': stretch,
   'between': space-between,
@@ -71,17 +55,15 @@ $cross-content: (
   'end': flex-end,
   'center': center
 ) !default;
-
-@each $content, $value in $cross-content {
-  .cross-content-#{$content} {
-    align-content: $value;
-  }
-}
+// 输出
+.cross-content-stretch { align-content: stretch; }
+// other
 ```
 
-指定元素在交叉轴方向上的对齐方式。
+指定元素在交叉轴方向上的对齐方式，支持重写，但不支持扩展。
 
 ``` scss
+// 默认集合
 $cross-items: (
   'stretch': stretch,
   'baseline': baseline,
@@ -89,10 +71,7 @@ $cross-items: (
   'end': flex-end,
   'center': center
 ) !default;
-
-@each $item, $value in $cross-items {
-  .cross-items-#{$item} {
-    align-items: $value;
-  }
-}
+// 输出
+.cross-items-stretch { align-items: stretch; }
+// other
 ```

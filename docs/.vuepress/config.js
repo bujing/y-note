@@ -15,6 +15,7 @@ module.exports = {
             ['float', '浮动'],
             ['flexbox', '弹性盒子'],
             ['button', '按钮'],
+            ['border', '边框'],
             ['how-to-write-css', '我们应该怎样编写样式']
           ]
         }

@@ -2,9 +2,10 @@
 
 文本是页面中最基本的组成部分，而与文本关系最为密切的样式不外乎：字号、颜色和对齐方式。
 
-在 `$text-size` 集合中声明文本的字号样式。扩展此集合，可以获取自定义的样式类。
+在 `$text-size` 集合中声明文本的字号样式，支持扩展和重写。
 
 ``` scss
+// 默认配置
 $text-size: () !default;
 $text-size: map-merge(
   (
@@ -16,75 +17,55 @@ $text-size: map-merge(
   ),
   $text-size
 );
-
-@each $size, $value in $text-size {
-  .text-#{$size} {
-    font-size: $value;
-  }
-}
-```
-
-``` html
-<p class="text-md">这是一段示例文字。</p>
+// 指定集合
+$text-size: (
+  'xxl': 24px,
+  'xl': 22px
+);
+// 输出
+.text-xxl { font-size: 24px; } // 扩展
+.text-xl { font-size: 22px; } // 重写
+// other
 ```
 
 也可以通过字号边界声明，来获取一个区间内的字号样式。
 
 ``` scss
-$text-size-min: 0 !default;
-$text-size-max: 0 !default;
-
-@if $text-size-max > $text-size-min {
-  @for $size from $text-size-min through $text-size-max {
-    .fs-#{$size} {
-      font-size: #{$size}px;
-    }
-  }
-}
+// 指定变量
+$font-size-min: 30;
+$font-size-max: 32;
+// 输出
+.fs-30 { font-size: 30px; }
+// ...
+.fs-32 { font-size: 32px; }
 ```
 
-``` html
-<p class="fs-16">这是一段示例文字。</p>
-```
-
-在 `$text-color` 集合中声明文本的颜色样式，丰富文本的不同语义表示。同样支持扩展。
+在 `$text-color` 集合中声明文本的颜色样式，丰富文本的不同语义表示，支持扩展和重写。
 
 ``` scss
-$black: #000;
-$white: #fff;
-
+// 默认配置
 $text-color: () !default;
 $text-color: map-merge(
   (
     'black': $black,
+    'gray': $gray,
     'white': $white
   ),
   $text-color
 );
-
-@each $color, $value in $text-color {
-  .text-#{$color} {
-    color: $value;
-  }
-}
+// 指定集合
+$text-color: (
+  red: #f00
+);
+// 输出
+.text-red { color: #f00; } // 扩展
+.text-black { color: #000; }
+// other
 ```
 
-``` html
-<p class="text-black">这是一段示例文字。</p>
-```
+在 `$text-align` 集合中声明文本的对齐样式，包含 `center`、`left`、`right` 和 `justify`，支持重写，但不支持扩展。
 
-在 `$text-align` 集合中声明文本的对齐样式。
-
-``` scss
-$text-align: center, left, right, justify !default;
-
-@each $align in $text-align {
-  .text-#{$align} {
-    text-align: $align;
-  }
-}
-```
-
-``` html
-<p class="text-center">这是一段示例文字。</p>
+``` css
+.text-center { text-align: center; }
+/* other */
 ```
